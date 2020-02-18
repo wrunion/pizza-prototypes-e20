@@ -21,7 +21,7 @@ Keep it simple to start! You do not need to have a complex formula for determini
 
 ### Instructions
 
-* View the app [here]().
+* View the app [here](https://wrunion.github.io/pizza-prototypes-e20/).
 * Choose the toppings and size for your pizza.
 * Click submit to see your result!
 
