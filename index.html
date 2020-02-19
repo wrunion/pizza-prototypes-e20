@@ -7,77 +7,56 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Site Title -->
-  <title>Winter's Webpage</title>
+  <title>Winter's Pizza Parlour</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- Bootstrap CDN -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-
   <!-- Semantic UI -->
-  <!-- COMMENT IN THE CODE BELOW IF you want to use Semantic UI instead of Bootstrap -->
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" type="text/css">
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script> -->
-
-    <!-- NEW SEMANTIC LINKS. SEE IF THESE WORK BETTER, AND IF THEY FIX THE JQUERY ISSUES -->
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 
-
-<!-- NOTE: Add fontawesome icons -->
+  <!-- Font Awesome Icons & Custom Fonts -->
 
   <!-- Custom scripts & stylesheet -->
   <script src="js/scripts.js"></script>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
   <div class="ui container" id="content">
-  <h2 class="ui header green">Pick Your Pizza!</h2>
-  <form class="ui form">
-    <h4>Contact Info</h4>
-    Enter your name: <input type="text" placeholder="Full name"><br>
-    <!-- Enter your Phone number<input type="number" placeholder="Phone Number"><br>  -->
-    <!-- Radio buttons for size  -->
-    <h4>Size</h4>
-    <input type="radio" id="small" name="gender" value="small">
-    <label for="small">Small ($10)</label><br>
-    <input type="radio" id="Medium" name="gender" value="Medium">
-    <label for="Medium">Medium ($15)</label><br>
-    <input type="radio" id="large" name="gender" value="large">
-    <label for="large">Large ($20)</label><br>
-    <input type="radio" id="jumbo" name="gender" value="jumbo">
-    <label for="jumbo">Jumbo ($25)</label>
+    <h2 class="ui header green">Pick Your Pizza!</h2>
 
-    <h4>Toppings</h4>
-    <input type="checkbox" id="pepperoni" name="pepperoni" value="Bike">
-    <label for="pepperoni"> Pepperoni</label><br>
-    <input type="checkbox" id="peppers" name="peppers" value="Car">
-    <label for="peppers"> Bell Peppers</label><br>
-    <input type="checkbox" id="Goat Cheese" name="Goat Cheese" value="Boat">
-    <label for="Goat Cheese"> Goat Cheese</label><br>
-    <input type="checkbox" id="veggieDeluxe" name="veggieDeluxe" value="Bike">
-    <label for="veggieDeluxe"> Veggie Deluxe</label><br>
-    <input type="checkbox" id="pineapple" name="pineapple" value="Car">
-    <label for="pineapple"> Pineapple</label><br>
-    <input type="checkbox" id="bacon" name="bacon" value="Car">
-    <label for="bacon"> Bacon</label><br>
-    <!--<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1"> I have a bike</label><br>
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-    <label for="vehicle2"> I have a car</label><br>
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-    <label for="vehicle3"> I have a boat</label><br> -->
-    <button type="submit" class="ui basic green button fluid">Submit</button>
-  </form>
-</div>
+    <form class="ui form" id="orderForm">
+      <h4>Contact Info</h4>
+      Enter your name: <input type="text" placeholder="Full name"><br>
+
+      <!-- Radio buttons to choose size  -->
+      <h4>Size</h4>
+      <input type="radio" id="small" name="size" value="small">
+      <label for="small">Small ($10)</label><br>
+      <input type="radio" id="Medium" name="size" value="Medium">
+      <label for="Medium">Medium ($15)</label><br>
+      <input type="radio" id="large" name="size" value="large">
+      <label for="large">Large ($20)</label><br>
+
+      <!-- Checkboxes to choose toppings  -->
+      <h4>Toppings ($1 each)</h4>
+      <input type="checkbox" id="pepperoni" name="pepperoni" value="Bike">
+      <label for="pepperoni"> Pepperoni</label><br>
+      <input type="checkbox" id="peppers" name="peppers" value="Car">
+      <label for="peppers"> Bell Peppers</label><br>
+      <input type="checkbox" id="Goat Cheese" name="Goat Cheese" value="Boat">
+      <label for="Goat Cheese"> Goat Cheese</label><br>
+      <input type="checkbox" id="veggieDeluxe" name="veggieDeluxe" value="Bike">
+      <label for="veggieDeluxe"> Veggie Deluxe</label><br>
+      <input type="checkbox" id="pineapple" name="pineapple" value="Car">
+      <label for="pineapple"> Pineapple</label><br>
+      <input type="checkbox" id="bacon" name="bacon" value="Car">
+      <label for="bacon"> Bacon</label><br>
+
+      <!-- Submit button  -->
+      <button type="submit" class="ui basic green button fluid">Submit</button>
+    </form>
+
+  </div>
 </body>
 </html>
