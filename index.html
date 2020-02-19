@@ -15,48 +15,42 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 
-  <!-- Font Awesome Icons & Custom Fonts -->
-
   <!-- Custom scripts & stylesheet -->
   <script src="js/scripts.js"></script>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div class="ui container" id="content">
+  <div class="ui container segment" id="content">
     <h2 class="ui header green">Pick Your Pizza!</h2>
-
+    <!-- Order form  -->
     <form class="ui form" id="orderForm">
       <h4>Contact Info</h4>
-      Enter your name: <input type="text" placeholder="Full name"><br>
-
+      Enter your name: <input type="text" placeholder="Full name" id="userName" value="Winter" required><br>
       <!-- Radio buttons to choose size  -->
       <h4>Size</h4>
-      <input type="radio" id="small" name="size" value="small">
+      <input type="radio" id="small" name="size" value="small" required>
       <label for="small">Small ($10)</label><br>
-      <input type="radio" id="Medium" name="size" value="Medium">
+      <input type="radio" id="Medium" name="size" value="Medium" checked>
       <label for="Medium">Medium ($15)</label><br>
       <input type="radio" id="large" name="size" value="large">
       <label for="large">Large ($20)</label><br>
-
       <!-- Checkboxes to choose toppings  -->
       <h4>Toppings ($1 each)</h4>
-      <input type="checkbox" id="pepperoni" name="pepperoni" value="Bike">
+      <input type="checkbox" id="pepperoni" name="topping" value="Pepperoni">
       <label for="pepperoni"> Pepperoni</label><br>
-      <input type="checkbox" id="peppers" name="peppers" value="Car">
-      <label for="peppers"> Bell Peppers</label><br>
-      <input type="checkbox" id="Goat Cheese" name="Goat Cheese" value="Boat">
+      <input type="checkbox" id="peppers" name="topping" value="Bell Peppers">
+      <label for="Bell Peppers"> Bell Peppers</label><br>
+      <input type="checkbox" id="Goat Cheese" name="topping" value="Goat Cheese">
       <label for="Goat Cheese"> Goat Cheese</label><br>
-      <input type="checkbox" id="veggieDeluxe" name="veggieDeluxe" value="Bike">
+      <input type="checkbox" id="veggieDeluxe" name="topping" value="Veggie Deluxe">
       <label for="veggieDeluxe"> Veggie Deluxe</label><br>
-      <input type="checkbox" id="pineapple" name="pineapple" value="Car">
+      <input type="checkbox" id="pineapple" name="topping" value="Pineapple">
       <label for="pineapple"> Pineapple</label><br>
-      <input type="checkbox" id="bacon" name="bacon" value="Car">
+      <input type="checkbox" id="bacon" name="topping" value="Bacon">
       <label for="bacon"> Bacon</label><br>
-
       <!-- Submit button  -->
-      <button type="submit" class="ui basic green button fluid">Submit</button>
+      <button type="submit" class="ui basic green button fluid" id="submit">Submit</button>
     </form>
-
   </div>
 </body>
 </html>
