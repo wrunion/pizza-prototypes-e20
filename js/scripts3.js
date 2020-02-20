@@ -34,7 +34,7 @@ class Order {
 
 
 
-class Pizza extends Order {
+class Pizza {
   constructor(size, toppings=[]){
       this.size = size;
       this.toppings = toppings;
