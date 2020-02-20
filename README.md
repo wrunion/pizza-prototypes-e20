@@ -1,6 +1,6 @@
-# Winter's Rainbow Pizza Parlour
+# Winter's Pizza Parlour
 
-#### A colorful exercise in constructor functions, prototypes, and ES6 classes for Epicodus' JS/React Track. 2/17/2020
+#### An exercise in constructor functions, prototypes, and ES6 classes for Epicodus' JS/React Track. 2/17/2020
 
 #### By **Winter A. Runion**
 
