@@ -1,21 +1,43 @@
 // Business Logic ----------------------------
-class Pizza {
-  constructor(customerName, size, toppings=[]){
-      this.name = customerName;
+
+class MenuItem {
+  constructor(size, toppings = []) {
+    this.size = size;
+    this.toppings = toppings;
+  }
+  displayItem() {
+    return {
+      "Size" : this.size,
+      "Toppings" : [...this.toppings]
+    }
+  }
+}
+
+class Order {
+  constructor(customerName) {
+    this.customerName = customerName;
+    this.items = [];
+    }
+  totalCost() {
+    let total = 0;
+    this.items.forEach(item) {
+      total += item.price();
+     }
+    }
+    displayOrder() {
+      // Should this be here??? Or should it be elsewhere, bc it's user facing???
+    }
+    addItem(item) {
+      this.items.push(item);
+    }
+}
+
+
+
+class Pizza extends Order {
+  constructor(size, toppings=[]){
       this.size = size;
       this.toppings = toppings;
-      // this.price = function() {
-      //   let total = 0;
-      //   if (this.size === "small") { total += 10; }
-      //   if (this.size === "medium") { total += 15; }
-      //   if (this.size === "large") { total += 20; }
-      //   //Check to see if user ordered extra toppings. If so, charge them $1 extra per topping.
-      //   if (this.toppings) { total += this.toppings.length; }
-      //   return total;
-      // }
-      // *QUESTION FOR MEGAN*
-      // Is it better practice to have price as a property that's also a function, like I did above?
-      // Or is it better to do it as a separate method, like I did below?
   }
   getPrice() {
         let total = 0;
@@ -27,6 +49,12 @@ class Pizza {
         if (this.toppings) { total += this.toppings.length; }
         return total;
       }
+  displayPizza() {
+    return ``;
+  }    
+  addToOrder() {
+    customerOrder.push(this);
+  }
 }
 
 // These functions are separate instead of part of Pizza, because they're more user facing
@@ -42,6 +70,8 @@ function thankCustomer(customerName){
   return `Thank you for your order, ${customerName}! It will be ready for pickup in 30 minutes or less!`;
 }
 
+
+
 // UI Logic --------------------------
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
@@ -53,23 +83,11 @@ $(document).ready(function() {
         toppings.push($(this).val());
     });
 
-    //Confirm the order with the user
-    let confirmSelections = confirm(confirmOrder(size, toppings));
+    let pizza = new Pizza(name, size, toppings);
+    console.log(pizza);
+    console.log(pizza.getPrice());
+    pizza.
     
-    // Create a new instance of Pizza if user confirms
-    if (confirmSelections) {
-      let pizza = new Pizza(name, size, toppings);
-      console.log(pizza);
-      console.log(pizza.getPrice());
-
-      // Display and confirm total price with user
-      let submitOrder = confirm(`Your total is $${pizza.getPrice()}. Press "okay" to submit your order or "cancel" to go back.`);
-
-      if (submitOrder) {
-      alert(thankCustomer(name));
-    }
-    
-    }
     event.preventDefault();
   });
 });
