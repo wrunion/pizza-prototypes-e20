@@ -5,16 +5,12 @@ class Order {
     this.customerName = customerName;
     this.items = [];
   }
-  // THIS WORKS
   addItem(item) {
     this.items.push(item);
   }
-  
-  // removeItem() {
-  //   // Stretch goal. If everything else is done, assign IDs to each item, and give the customer the option of deleting itemes or changing quanitiies on the order confirmation form.
-  // }
-
-  // THIS WORKS
+  removeItem() {
+    // Stretch goal. If everything else is done, assign IDs to each item, and give the customer the option of deleting itemes or changing quanitiies on the order confirmation form.
+  }
   calculateTotal() {
     let total = 0;
     for (let i=0; i<this.items.length; i++) {
@@ -66,16 +62,41 @@ class BreadSticksOrder {
 }
 
 //Tests: WORKING ------------------------
-let order = new Order("Leia Organa");
-let pizza = new Pizza("small", [], 1);
-let pizza2 = new Pizza("large", [], 1);
-let drinkOrder = new DrinkOrder(5);
-let breadSticksOrder = new BreadSticksOrder(1); 
-order.addItem(drinkOrder);
-order.addItem(breadSticksOrder);
-order.addItem(pizza);
-order.addItem(pizza2);
-console.log(order.calculateTotal());
-console.log(order.thankCustomer());
+// let order = new Order("Leia Organa");
+// let pizza = new Pizza("small", [], 1);
+// let pizza2 = new Pizza("large", [], 1);
+// let drinkOrder = new DrinkOrder(5);
+// let breadSticksOrder = new BreadSticksOrder(1); 
+// order.addItem(drinkOrder);
+// order.addItem(breadSticksOrder);
+// order.addItem(pizza);
+// order.addItem(pizza2);
+// console.log(order.calculateTotal());
+// console.log(order.thankCustomer());
 //Expected output: 50. Actual output: 50. TEST PASSED!!!
 
+// let order;
+// let pizza;
+// let total;
+
+// UI Logic --------------------------
+$(document).ready(function() {
+  $("form#orderForm").submit(function(event) {
+    // Gather user input
+    let name = $("input#name").val();
+    let size = $("input:radio[name=size]:checked").val();
+    let toppings = [];
+      $.each($("input[name='topping']:checked"), function(){
+        toppings.push($(this).val());
+     });
+    // Create a new order and a new pizza, then push the pizza info to the order
+    order = new Order(name); 
+    pizza =  new Pizza(size, toppings, 1);
+    order.addItem(pizza);
+    // Retrieve & console.log order total
+    console.log(order.calculateTotal());
+    // Show the user their total, and thank them for their business!
+    alert(order.thankCustomer());
+    event.preventDefault();
+    });
+  });
