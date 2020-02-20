@@ -17,6 +17,9 @@ class Pizza {
       console.log(`Your total is ${this.price}.`);
       return this.price;
   }
+  displayOrder() {
+    //return the customer's info in a nice to display/read
+  }
 }
 
 // UI Logic --------------------------
