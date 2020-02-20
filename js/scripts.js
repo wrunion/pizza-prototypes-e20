@@ -4,17 +4,8 @@ class Pizza {
       this.name = customerName;
       this.size = size;
       this.toppings = toppings;
-      // ***QUESTION FOR MEGAN*** 
-      // Is it better practice to have price as a property that is a function?
-      // For example: 
-          //this.price = function() {
-            // (calculate and return price here);
-          // }
-      // Is that more effective? Or is it better to do it as a separate method, like I did below?
-  }
-  getPrice() {
+      this.price = function() {
         let total = 0;
-        //Set base price of pizza based on size
         if (this.size === "small") { total += 10; }
         if (this.size === "medium") { total += 15; }
         if (this.size === "large") { total += 20; }
@@ -22,9 +13,10 @@ class Pizza {
         if (this.toppings) { total += this.toppings.length; }
         return total;
       }
+    }
 }
 
-// These functions are separate instead of part of Pizza, because they're more user facing
+// User-Facing Logic -----------------------
 function confirmOrder(size, toppings=[]) {
   if (toppings.length === 1) {
     return `You would like a ${size} pizza with ${toppings.length} additional topping. Is that correct?`; 
@@ -54,14 +46,16 @@ $(document).ready(function() {
     // Create a new instance of Pizza if user confirms
     if (confirmSelections) {
       let pizza = new Pizza(name, size, toppings);
+      console.log(pizza);
+      console.log(pizza.price());
 
       // Display and confirm total price with user
-      let submitOrder = confirm(`Your total is $${pizza.getPrice()}. Press "okay" to submit your order or "cancel" to go back.`);
+      let submitOrder = confirm(`Your total is $${pizza.price()}. Press "okay" to submit your order or "cancel" to go back.`);
 
       if (submitOrder) {
       alert(thankCustomer(name));
     }
-    
+
     }
     event.preventDefault();
   });
