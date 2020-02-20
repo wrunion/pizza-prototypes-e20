@@ -4,23 +4,40 @@ class Pizza {
       this.name = customerName;
       this.size = size;
       this.toppings = toppings;
-      this.price = 0;
+      //NOTE: Should I have price as a property that is a function? Or as a separate method, like below?
+      // this.price = function() {
+      //   let total = 0;
+      //   //Set base price of pizza based on size
+      //   if (this.size === "small") { total += 10; }
+      //   if (this.size === "medium") { total += 15; }
+      //   if (this.size === "large") { total += 20; }
+      //   //Check to see if user ordered extra toppings. If so, charge them $1 extra per topping.
+      //   if (this.toppings) { total += this.toppings.length; }
+      //   return total;
+      // }
   }
-  getPrice(){
-      //Set base price of pizza based on size
-      if (this.size === "small") { this.price += 10; }
-      if (this.size === "medium") { this.price += 15; }
-      if (this.size === "large") { this.price += 20; }
-      console.log(`Your base price is ${this.price}.`);
-      //Check to see if user ordered extra toppings. If so, charge them $1 extra per topping.
-      if (this.toppings) { this.price += this.toppings.length; }
-      console.log(`Your total is ${this.price}.`);
-      return this.price;
-  }
-  displayOrder() {
-    //return the customer's info in a nice to display/read
-  }
+  getPrice() {
+        let total = 0;
+        //Set base price of pizza based on size
+        if (this.size === "small") { total += 10; }
+        if (this.size === "medium") { total += 15; }
+        if (this.size === "large") { total += 20; }
+        //Check to see if user ordered extra toppings. If so, charge them $1 extra per topping.
+        if (this.toppings) { total += this.toppings.length; }
+        return total;
+      }
+  confirmOrder() {
+    if (this.toppings.length === 1) {
+      return `You ordered a ${this.size} pizza with ${this.toppings.length} extra topping. Is that correct?`;
+    } 
+    return `You ordered a ${this.size} pizza with ${this.toppings.length} extra toppings. Is that correct?`;
+  }    
+  // displayOrder() {
+  //   return [`Name: ${this.name}`, ]
+  //   //return the customer's info in a nice, easy to display format
+  // }
 }
+
 
 // UI Logic --------------------------
 $(document).ready(function() {
@@ -40,6 +57,8 @@ $(document).ready(function() {
    let pizza = new Pizza(name, size, toppings);
    console.log(pizza);
    console.log(pizza.getPrice());
+   confirm(pizza.confirmOrder());
+  //  console.log(pizza.price());
     // $("#results-div").append(name, size, toppings);
     event.preventDefault();
   });
