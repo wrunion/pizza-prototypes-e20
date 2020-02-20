@@ -25,13 +25,13 @@
     <!-- Order form  -->
     <form class="ui form" id="orderForm">
       <h4>Contact Info</h4>
-      Enter your name: <input type="text" placeholder="Full name" id="userName" value="Winter" required><br>
+      Enter your name: <input type="text" placeholder="Full name" id="name" value="Winter" required><br>
       <!-- Radio buttons to choose size  -->
       <h4>Size</h4>
       <input type="radio" id="small" name="size" value="small" required>
       <label for="small">Small ($10)</label><br>
-      <input type="radio" id="Medium" name="size" value="Medium" checked>
-      <label for="Medium">Medium ($15)</label><br>
+      <input type="radio" id="medium" name="size" value="medium" checked>
+      <label for="medium">Medium ($15)</label><br>
       <input type="radio" id="large" name="size" value="large">
       <label for="large">Large ($20)</label><br>
       <!-- Checkboxes to choose toppings  -->
@@ -51,6 +51,10 @@
       <!-- Submit button  -->
       <button type="submit" class="ui basic green button fluid" id="submit">Submit</button>
     </form>
+    <div id="results-div">
+
+    </div>
+
   </div>
 </body>
 </html>
