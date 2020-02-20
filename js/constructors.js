@@ -1,4 +1,5 @@
 // Business Logic: Constructor Functions --------------------
+// To meet Epicodus criteria and demonstrate understanding of constructors and prototypes
 
 function Pizza(customerName, size, toppings) {
   this.customerName = customerName;
