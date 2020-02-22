@@ -1,3 +1,20 @@
+html, body, header, #intro {
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair", serif;
+}
+
+#submit {
+  font-family: "Playfair", serif;
+}
+
+#name {
+  font-family: "Raleway", sans-serif;
+}
+
 #content {
   margin-top: 3em;
 }
@@ -10,14 +27,4 @@ h2 {
   margin-top: 1em;
 }
 
-html, body, header, #intro {
-  height: 100%;
-}
 
-#section-home {
-  background: url("background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
