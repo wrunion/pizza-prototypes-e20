@@ -9,3 +9,15 @@ h2 {
 #submit {
   margin-top: 1em;
 }
+
+html, body, header, #intro {
+  height: 100%;
+}
+
+#section-home {
+  background: url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
