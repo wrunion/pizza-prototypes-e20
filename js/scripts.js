@@ -1,7 +1,7 @@
 // Business Logic --------------------
 
 class Order {
-  constructor(customerName) {
+  constructor(customerName) { 
     this.customerName = customerName;
     this.items = [];
   }
@@ -17,7 +17,7 @@ class Order {
     return total;
   }
   thankCustomer() {
-    return `Thank you for your order, ${this.customerName}! Your total is $${this.calculateTotal()}. \n\n Your food will be ready for pickup in 15 minutes.`;
+    return `Thank you for your order, ${this.customerName}! Your total is $${this.calculateTotal()}.`;
   }
 }
 
@@ -30,18 +30,18 @@ class Pizza {
   }
   getPrice() {
     let total = 0;
-    //Set base price of pizza based on size
+    /* Set base price of pizza based on size */
     if (this.size === "small") { total += 10; }
     if (this.size === "medium") { total += 15; }
     if (this.size === "large") { total += 20; }
-    //Check to see if user ordered extra toppings. If so, charge them $1 extra per topping.
+    /* Check to see if user ordered extra toppings. If so, charge them $1 extra per topping. */
     if (this.toppings) { total += this.toppings.length; }
     total *= this.quantity;
     return total;
   }
 }
 
-// Constructors for other menu items
+/* Constructors for other menu items (To be implemented) */
 class DrinkOrder {
   constructor(quantity) {
     this.quantity = quantity;
@@ -58,38 +58,30 @@ class BreadSticksOrder {
   }
 }
 
-//Tests: WORKING ------------------------
-// let order = new Order("Leia Organa");
-// let pizza = new Pizza("small", [], 1);
-// let pizza2 = new Pizza("large", [], 1);
-// let drinkOrder = new DrinkOrder(5);
-// let breadSticksOrder = new BreadSticksOrder(1); 
-// order.addItem(drinkOrder);
-// order.addItem(breadSticksOrder);
-// order.addItem(pizza);
-// order.addItem(pizza2);
-// console.log(order.calculateTotal());
-// console.log(order.thankCustomer());
-// Expected output: 50. Actual output: 50. TEST PASSED!!!
+let order;
+let pizza;
 
 // UI Logic --------------------------
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
-    // Gather user input
+    /* Gather user inputs */
     let name = $("input#name").val();
     let size = $("input:radio[name=size]:checked").val();
     let toppings = [];
       $.each($("input[name='topping']:checked"), function(){
         toppings.push($(this).val());
      });
-    // Create a new order and a new pizza, then push the pizza info to the order
+
+    /* Create a new order and a new pizza. Push the pizza info to the order */
     order = new Order(name); 
     pizza =  new Pizza(size, toppings, 1);
     order.addItem(pizza);
-    // Retrieve & console.log order total
+
+    /* Retrieve & console.log order total */
     console.log(order.calculateTotal());
-    // Show the user their total, and thank them for their business!
-    alert(order.thankCustomer());
+    
+    /* Show the user their total, and thank them for their business! */
+    alert(`${order.thankCustomer()} \n\n Your pizza will be ready for pickup in 20 minutes.`);
     event.preventDefault();
     });
   });
